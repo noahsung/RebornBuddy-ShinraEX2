@@ -54,7 +54,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> DragonKick()
         {
-            if (DK == true) return false;
+            if (DK == true)
+            {
+                DK = false;
+                return await MySpells.Bootshine.Cast();
+            }
             if ((OpoOpoForm || BalanceActive) && !Core.Player.CurrentTarget.HasAura(821, false, 6000))
             {
                 DK = true;
